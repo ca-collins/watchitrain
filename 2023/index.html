@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Watch it Pour</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Watch it Pour</h1>
+
+    <div class="input-group">
+      <label for="salary">Yearly Salary ($)</label>
+      <input type="number" id="salary" name="salary" placeholder="0">
+    </div>
+
+    <div class="input-group">
+      <label for="hourly-rate">Hourly Rate ($)</label>
+      <input type="number" id="hourly-rate" name="hourly-rate" placeholder="0">
+    </div>
+
+    <button onclick="startCounter()">Start</button>
+
+    <div class="output">
+      <p id="output">You are earning: $<span id="earning">0.00</span> per second.</p>
+    </div>
+
+    <div class="money-animation" id="money-animation"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
