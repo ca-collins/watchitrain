@@ -1,0 +1,400 @@
+
+
+
+:root {
+
+}
+
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #707070;
+  background-color: #F2F3F1;
+
+}
+
+/* Clears input number styles For Firefox */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+/* Clears input number styles Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h1, .input-title, .btn-submit,{
+  font-family: 'Jura', sans-serif;
+}
+
+
+/* general slider radio & checkbox button styles */
+input[type="radio"], input[type="checkbox"] {
+  display: none;
+}
+
+form .radio-label {
+  display: inline-block;
+  width: 3.5rem;
+  margin-right: -.3em;
+  background-color: #D2D1D4;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: .4em 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+form .radio-label:hover, .check-label:hover {
+	cursor: pointer;
+}
+
+form input:checked + .radio-label {
+  background-color: #D0F1BF;
+  font-weight: bold;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
+}
+
+form .radio-label:first-of-type {
+  border-radius: 10px 0 0 10px;
+}
+
+form .radio-label:last-of-type {
+  border-radius: 0 10px 10px 0;
+}
+
+
+/* Form styles */
+form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 2fr .5fr;
+  grid-gap: 1rem;
+}
+
+.input-title {
+  grid-column: 1 / 3;
+  justify-self: right;
+}
+
+.switch-wrapper {
+  grid-column: 3 / 5;
+}
+
+
+/* Number input styles */
+form input[type="number"] {
+  border-radius: 10px;
+  padding: .4em .9em;
+  width: 7rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+form input[type="number"]::placeholder {
+  color: #D2D1D4;
+  text-align: center;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* App start form styles */
+.init-form {
+  transform: translateX(0);
+  transition: transform 0.25s;
+}
+
+.slideOutLeft {
+  height: 0;
+  transform: translateX(-10000px);
+  transition: height 0.25s , transform 0.75s;
+}
+
+label[for=btn-start] {
+  grid-column: 1 / 5;
+  grid-row: 4 / 5;
+  font-size: 2rem;
+  justify-self: center;
+  color: #707070;
+  z-index: 999;
+}
+
+label[for=btn-start]:hover {
+  text-shadow: 0px 0px 30px #B6DC76;
+}
+
+.hourly-input, .yearly-input {
+  opacity: 0;
+  transition: transform 1.5s;
+}
+
+
+/* main styles */
+main {  
+  opacity: 0;
+  transition: transform 1.5s;
+}
+
+.slideInDown {
+  opacity: 1;
+  transition: 1s;   
+}
+
+#clouds {
+  display: block;
+  width: 85%;
+  min-width: 280px;
+  height: 10.3rem;
+  margin: 0 auto 0 auto;
+  background-image: url("../img/icons/clouds.png");
+  background-repeat: repeat-x;
+  background-size: 17.5rem;
+  background-position: top;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 3px solid#758E4F;
+  border-left: 3px solid#758E4F;
+  border-right: 3px solid#758E4F;
+  z-index: 999;
+}
+
+.rain-wrapper {
+  width: 85%;
+  height: 50vh;
+  margin: -5rem auto -4.6rem auto;
+  border: none;
+  position: relative;
+  border-left: 3px solid#758E4F;
+  border-right: 3px solid#758E4F;
+  border-bottom: 3px solid#758E4F;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: -999;
+
+}
+
+/* **********dollar falling animation******* */
+/* Copyright (c) 2018 by Sarah Higley (https://codepen.io/smhigley/pen/gwYPvR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+
+.falling-dollars {
+  position: absolute;
+   top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dollar-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.dollar-scene div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url(../img/icons/cash.svg) no-repeat;
+  background-size: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+}
+
+/* ^^^^^^^dollar falling animation^^^^^^^^ */
+
+.money-counter {
+  font-family: 'Roboto Mono', monospace;
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: #B6DC76;
+  margin: -5rem auto 0 auto;
+  width: 85%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#timer {
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.money-counter .tenths {
+  color: #D0F1BF;
+}
+
+/* contolr bar styles */
+.check-label {
+  cursor: pointer;
+}
+
+.control-bar {
+  width: 100%;
+  margin: 1rem auto 0.5rem auto;
+  text-align: center;
+}
+
+.control-bar div {
+  display: inline-block;
+  text-align: center;
+  margin: 0 1.83rem;
+}
+
+#btn-play-pause ~ .checked {
+  display: none;  
+}
+
+#btn-play-pause:checked ~ .unchecked {
+  display: none;
+}
+
+#btn-play-pause:checked ~ .checked {
+  display: block;
+}
+
+#btn-sound ~ .unchecked {
+  display: none;  
+}
+
+#btn-sound:checked ~ .checked {
+  display: none;
+}
+
+#btn-sound:checked ~ .unchecked {
+  display: block;
+}
+
+.btn-div {
+  width: 21px;
+  text-align: left;
+}
+
+.control-bar div .check-label i {
+  font-size: 1.5rem;
+}
+
+
+/* Settings form styles */
+.settings {
+  transform: scaleY(0);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.settings-btn-wrapper {
+  position: relative;
+}
+
+.settings-menu-line {
+  color: #D2D1D4;
+  border-left: solid #D2D1D4 1px;
+  height: 1.5rem;
+  width: 1px;
+  position: absolute;
+  bottom: -69%;
+  left: -74%;
+  z-index: -100;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#settings-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: solid #D2D1D4 1px;
+  border-radius: 10px;
+  justify-items: left;
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: rgb(250, 250, 250);
+}
+
+#settings-form .input-title {
+  grid-column: 1 / 2;
+  justify-self: right;
+  margin: 0;
+}
+
+#settings-form .switch-wrapper {
+  grid-column: 2 / 3;
+}
+
+.fill-in-blank > * {
+  display: inline;
+}
+
+.fill-in-blank .input-title-after{
+  margin-left: .75rem;
+}
+
+.fill-in-blank .short-blank {
+  width: 6rem;
+}
+
+.slideScaleIn {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: 0.5s;
+}
+
+.slideScaleOut {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1133px) {
+
+ 
+}
+
+
+
+
+
