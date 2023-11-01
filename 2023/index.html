@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$ WATCH IT RAIN $</title>
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$ WATCH IT RAIN $</title>
 
-    <!-- Google Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Roboto:400,700|Roboto+Mono:400,700" rel="stylesheet">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Google Fonts CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Roboto:400,700|Roboto+Mono:400,700" rel="stylesheet">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
-  </head>
+</head>
 
 <!-- fontawesome icons
   <i class="far fa-money-bill-alt"></i>
@@ -28,100 +30,101 @@
   <i class="fas fa-cog"></i>
 -->
 
-  <body>
+<body>
 
-    <h1 class="logo">Watch it rain</h1>
+  <h1 class="logo">Watch it rain</h1>
 
-    <form class="init-form">
+  <form class="init-form">
 
-      <div class="input-title">Pay type</div>
-      <div class="switch-wrapper pay-type-wrapper">
-        <input type="radio" id="yearly-radio" name="pay-type" value="yearly"/>
-        <label for="yearly-radio" id="yearly-label" class="radio-label">yearly</label>
-        <input type="radio" id="hourly-radio" name="pay-type" value="hourly"/>
-        <label for="hourly-radio" id="hourly-label" class="radio-label">hourly</label>  
+    <div class="input-title">Pay type</div>
+    <div class="switch-wrapper pay-type-wrapper">
+      <input type="radio" id="yearly-radio" name="pay-type" value="yearly" />
+      <label for="yearly-radio" id="yearly-label" class="radio-label">yearly</label>
+      <input type="radio" id="hourly-radio" name="pay-type" value="hourly" />
+      <label for="hourly-radio" id="hourly-label" class="radio-label">hourly</label>
+    </div>
+
+    <div class="input-title hourly-input yearly-input">Pay amount</div>
+    <input type="number" id="pay-amount" class="hourly-input yearly-input" name="" value="" placeholder="$ / yr">
+
+    <div class="input-title yearly-input">Hours per week</div>
+    <input type="number" id="hrs-per-wk" class="yearly-input" name="" value="" placeholder="hrs / wk">
+
+    <button type="button" class="btn-control btn-submit" id="btn-start"><i class="fas fa-play"></i></button>
+
+  </form>
+
+  <main>
+
+    <div id="clouds"></div>
+    <!-- <img id="clouds" src="img/icons/clouds.png" alt="clouds"> -->
+
+    <div class="rain-wrapper">
+      <div class="falling-dollars" id="falling-dollars-wrapper"></div>
+    </div>
+
+    <div class="money-counter">$00.00<span class="tenths">0</span></div>
+    <div class="timer-wrapper">
+      <h1 id="timer">00 : 00 . 000</h1>
+    </div>
+
+    <div class="control-bar">
+
+
+      <div>
+        <input type="checkbox" class="btn-control" id="btn-restart" name="" />
+        <label for="btn-restart" class="check-label" id="label-restart"><i class="fas fa-redo"></i></label>
       </div>
 
-      <div class="input-title hourly-input yearly-input">Pay amount</div>
-      <input type="number" id="pay-amount" class="hourly-input yearly-input" name="" value="" placeholder="$ / yr">
-
-      <div class="input-title yearly-input">Hours per week</div>
-      <input type="number" id="hrs-per-wk" class="yearly-input" name="" value="" placeholder="hrs / wk">
-
-      <input type="checkbox" class="btn-control" id="btn-start" name=""/>
-      <label for="btn-start" class="check-label" id="label-start"><i class="fas fa-play"></i></label>
-
-    </form>
-
-    <main>
-      
-      <div id="clouds"></div>
-      <!-- <img id="clouds" src="img/icons/clouds.png" alt="clouds"> -->
-
-      <div class="rain-wrapper">
-        <div class="falling-dollars" id="falling-dollars-wrapper"></div>
+      <div>
+        <input type="checkbox" class="btn-control" id="btn-play-pause" name="" />
+        <label for="btn-play-pause" class="check-label checked" id="label-play"><i class="fas fa-play"></i></label>
+        <label for="btn-play-pause" class="check-label unchecked" id="label-pause"><i class="fas fa-pause"></i></label>
       </div>
 
-      <div class="money-counter">$00.00<span class="tenths">0</span></div>
-      <div class="timer-wrapper">
-        <h1 id="timer">00 : 00 . 000</h1>
+      <div class="btn-div">
+        <input type="checkbox" class="btn-control" id="btn-sound" name="" />
+        <label for="btn-sound" class="check-label checked"><i class="fas fa-volume-up"></i></label>
+        <label for="btn-sound" class="check-label unchecked"><i class="fas fa-volume-off"></i></label>
       </div>
-      
-      <div class="control-bar">
 
+      <div class="settings-btn-wrapper">
+        <input type="checkbox" class="btn-control" id="btn-settings" name=""
+          onclick="settingsMenuToggle();scrollToggle()" />
+        <label for="btn-settings" class="check-label"><i class="fas fa-cog"></i></label>
+        <div class="settings-menu-line"></div>
+      </div>
 
-        <div>
-            <input type="checkbox" class="btn-control" id="btn-restart" name=""/>
-            <label for="btn-restart" class="check-label" id="label-restart"><i class="fas fa-redo"></i></label>
-        </div>
-
-        <div>
-            <input type="checkbox" class="btn-control" id="btn-play-pause" name="" />
-            <label for="btn-play-pause" class="check-label checked" id="label-play"><i class="fas fa-play"></i></label>
-            <label for="btn-play-pause" class="check-label unchecked" id="label-pause"><i class="fas fa-pause"></i></label>
-        </div>
-
-        <div class="btn-div">
-            <input type="checkbox" class="btn-control" id="btn-sound" name=""/>
-            <label for="btn-sound" class="check-label checked"><i class="fas fa-volume-up"></i></label>
-            <label for="btn-sound" class="check-label unchecked"><i class="fas fa-volume-off"></i></label>
-        </div>
-
-        <div class="settings-btn-wrapper">
-            <input type="checkbox" class="btn-control" id="btn-settings" name="" onclick="settingsMenuToggle();scrollToggle()"/>
-            <label for="btn-settings" class="check-label"><i class="fas fa-cog"></i></label>
-            <div class="settings-menu-line"></div>
-        </div>   
- 
       <!-- settings section -->
-      </div>
-      <section class="settings">
-            
-        <form id="settings-form">
+    </div>
+    <section class="settings">
 
-          <div class="input-title">Count by</div>
-          <div class="switch-wrapper count-by-wrapper">
-            <input type="radio" id="tenths-radio" name="switch_3" value="tenths" checked/>
-            <label for="tenths-radio" class="radio-label">tenths</label>
-            <input type="radio" id="cents-radio" name="switch_3" value="cents">
-            <label for="cents-radio" class="radio-label">cents</label>
-            <input type="radio" id="dollars-radio" name="switch_3" value="dollars">
-            <label for="dollars-radio" class="radio-label">dollars</label>
-          </div>
+      <form id="settings-form">
 
-          <div class="input-title">Alert every</div>
-          <div class="switch-wrapper fill-in-blank">
-            <input type="number" class="short-blank" id="" name="" value="" placeholder="#">
-            <div class="input-title input-title-after">dollars</div>
-          </div>
+        <div class="input-title">Count by</div>
+        <div class="switch-wrapper count-by-wrapper">
+          <input type="radio" id="tenths-radio" name="switch_3" value="tenths" checked />
+          <label for="tenths-radio" class="radio-label">tenths</label>
+          <input type="radio" id="cents-radio" name="switch_3" value="cents">
+          <label for="cents-radio" class="radio-label">cents</label>
+          <input type="radio" id="dollars-radio" name="switch_3" value="dollars">
+          <label for="dollars-radio" class="radio-label">dollars</label>
+        </div>
 
-        </form>
-      </section>
+        <div class="input-title">Alert every</div>
+        <div class="switch-wrapper fill-in-blank">
+          <input type="number" class="short-blank" id="" name="" value="" placeholder="#">
+          <div class="input-title input-title-after">dollars</div>
+        </div>
+
+      </form>
+    </section>
 
 
-    </main>
-    <script src="stopWatch.js"></script>
-    <script src="script.js"></script>
-    <script src="animation.js"></script>
-  </body>
+  </main>
+  <script src="stopWatch.js"></script>
+  <script src="script.js"></script>
+  <script src="animation.js"></script>
+</body>
+
 </html>

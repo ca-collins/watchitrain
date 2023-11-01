@@ -74,21 +74,13 @@ function initPlay() {
 var timer = document.querySelector("#timer");
 var counter =document.querySelector(".money-counter")
 
-var startBtn = document.querySelector("#label-start");
-var playBtn = document.querySelector("#label-play");
+var startBtn = document.querySelector("#btn-start");
 var pauseBtn = document.querySelector("#label-pause");
 var restartBtn = document.querySelector("#label-restart");
 
 var watch = new Stopwatch(timer, counter);
 
-startBtn.addEventListener('click', function() {
-    initPlay();
-});
-
-playBtn.addEventListener('click', function() {
-    watch.start();
-    startAnimation();
-});
+startBtn.addEventListener('click', initPlay);
 
 pauseBtn.addEventListener('click', function() {
     watch.stop();
